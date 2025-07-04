@@ -1,0 +1,15 @@
+services:
+  # Define o serviço da sua API.
+  api:
+    # Constrói a imagem Docker a partir do Dockerfile no diretório atual ('.').
+    build: .
+    # Mapeia a porta 8000 do seu computador (host) para a porta 8000 do contêiner.
+    container_name: api
+    ports:
+      - "8000:8000"
+    # Monta o diretório atual do host para o diretório /app no contêiner.
+    # Isso permite que as alterações no código sejam refletidas instantaneamente
+    # no contêiner (hot-reload) e também persiste o banco de dados (escola.db) no seu host.
+    volumes:
+      - .:/app
+    
